@@ -58,7 +58,8 @@ export default function Home() {
             {cardSelected && (cardSelected.map((d, index)=> {
               const dataSelected = apiData?.find(v=>v.symbol === d.symbol)
               return(
-                <CardSelected key={index}>
+                <CardSelected key={index} ClassName="flex flex-col p-4 border-white border-2 rounded-xl relative">
+                  <button className="right-4 w-max absolute" onClick={()=>setCardSelected(e=>e.filter(item=>item.symbol!==d.symbol))}>X</button>
                   <p>{dataSelected?.symbol}</p>
                   <p>{dataSelected?.price}</p>
                 </CardSelected>
